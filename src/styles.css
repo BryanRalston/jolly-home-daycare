@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+
+  --color-cream: #fff6e8;
+  --color-paper: #ffe7b0;
+  --color-ink: #2c2748;
+  --color-muted: #5e5874;
+  --color-terracotta: #f15a29;
+  --color-terracotta-dark: #d4461b;
+  --color-leaf: #2eaa6a;
+  --color-leaf-dark: #228a54;
+  --color-sunflower: #ffc43a;
+  --color-sunflower-dark: #e0a61a;
+  --color-aqua: #3aa8d8;
+  --color-aqua-dark: #2a8bb6;
+  --color-blush: #ff8fa3;
+  --color-surface: #ffffff;
+  --color-line: #f0d6a8;
+
+  --color-background: #fff6e8;
+  --color-foreground: #2c2748;
+  --color-primary: #f15a29;
+  --color-primary-foreground: #fff6e8;
+  --color-card: #ffffff;
+  --color-border: #f0d6a8;
+  --color-ring: #f15a29;
+
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius: 1rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-sunflower) 55%, transparent);
+    color: var(--color-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
