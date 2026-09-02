@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Production GitHub Pages build (sets the /jolly-home-daycare/ base). */
+/** Production GitHub Pages build (custom domain, site served at /). */
 import { spawn } from "node:child_process";
 
 process.env.GITHUB_PAGES = "true";

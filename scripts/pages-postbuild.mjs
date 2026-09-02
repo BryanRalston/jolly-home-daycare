@@ -32,4 +32,5 @@ if (!existsSync(join(out, "404.html"))) {
   copyFileSync(fallback, join(out, "404.html"));
 }
 writeFileSync(join(out, ".nojekyll"), "");
+writeFileSync(join(out, "CNAME"), "www.jollyhomedaycare.com\n");
 console.log(`pages-postbuild: static site ready in ${out}/ (from ${src})`);

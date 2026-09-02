@@ -45,3 +45,11 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Point Pages at the custom domain
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method PUT "repos/${{ github.repository }}/pages" \
+            -f cname=www.jollyhomedaycare.com \
+            -f build_type=workflow
