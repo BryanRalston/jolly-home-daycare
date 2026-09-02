@@ -2,7 +2,7 @@
 
 Marketing site for Jolly Home Daycare, a licensed family day home at 18945 Longhouse Place, Leesburg, VA 20176 (Potomac Station). Hours are Monday–Friday, 7:30 AM – 5:30 PM. Phone 703-728-1326.
 
-**Live site:** [https://bryanralston.github.io/jolly-home-daycare/](https://bryanralston.github.io/jolly-home-daycare/)
+**Live site:** [https://www.jollyhomedaycare.com](https://www.jollyhomedaycare.com) (GitHub Pages; also at [bryanralston.github.io/jolly-home-daycare](https://bryanralston.github.io/jolly-home-daycare/))
 
 ## Local run
 
@@ -14,8 +14,8 @@ npm run dev
 The app serves at http://localhost:8080. Production static build:
 
 ```bash
-npm run build          # local base path /
-npm run build:pages    # GitHub Pages base /jolly-home-daycare/
+npm run build          # production static build (base /)
+npm run build:pages    # same build, used by GitHub Pages
 ```
 
 Static output lands in `site/`. GitHub Actions typechecks, builds, and deploys that folder to Pages on push to `main`.

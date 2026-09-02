@@ -27,7 +27,7 @@ export const site = {
     "https://www.google.com/maps/search/?api=1&query=18945+Longhouse+Place,+Leesburg,+VA+20176",
   mapsEmbedUrl:
     "https://maps.google.com/maps?q=18945+Longhouse+Place,+Leesburg,+VA+20176&z=16&output=embed",
-  publicUrl: "https://bryanralston.github.io/jolly-home-daycare",
+  publicUrl: "https://www.jollyhomedaycare.com",
 } as const;
 
 export const addressLine = `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`;

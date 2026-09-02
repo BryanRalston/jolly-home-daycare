@@ -5,9 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 // @ts-expect-error JS plugin alongside the TS vite config
 import { appEnvPlugin } from "./scripts/app-env-plugin.mjs";
 
-const PAGES_BASE = "/jolly-home-daycare/";
-const isGitHubPages = process.env.GITHUB_PAGES === "true";
-
 const staticRoutes = [
   { path: "/" },
   { path: "/about" },
@@ -16,7 +13,8 @@ const staticRoutes = [
 ];
 
 export default defineConfig({
-  base: isGitHubPages ? PAGES_BASE : "/",
+  // Custom domain (www.jollyhomedaycare.com) serves this project site at `/`.
+  base: "/",
   server: {
     host: "0.0.0.0",
     port: 8080,
