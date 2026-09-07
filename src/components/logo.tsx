@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { asset } from "@/lib/assets";
+import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Logo({
@@ -14,27 +16,28 @@ export function Logo({
     <Link
       to="/"
       onClick={onNavigate}
-      className={cn("flex items-center gap-2.5 no-underline", onDark ? "text-cream" : "text-ink", className)}
-      aria-label="Jolly Home Daycare, home"
+      className={cn("flex items-center gap-3 no-underline", className)}
+      aria-label={`${site.name}, home`}
     >
-      <svg
-        viewBox="0 0 40 40"
-        className="size-10 shrink-0"
-        aria-hidden="true"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="20" cy="20" r="20" className="fill-sunflower" />
-        <circle cx="20" cy="20" r="13.5" className="fill-cream" />
-        <path d="M12.5 21.2 20 14.4l7.5 6.8v6.4H12.5z" className="fill-leaf" />
-        <rect x="18" y="22.6" width="4" height="5" className="fill-terracotta" />
-        <circle cx="31.5" cy="8.5" r="3.2" className="fill-aqua" />
-      </svg>
+      <img
+        src={asset("images/logo.png")}
+        alt=""
+        width={56}
+        height={56}
+        className="size-12 rounded-md object-cover shadow-soft ring-1 ring-forest/15 sm:size-14"
+      />
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.05rem] font-semibold tracking-tight">Jolly Home</span>
         <span
           className={cn(
-            "mt-1 text-[0.68rem] font-medium uppercase tracking-[0.18em]",
+            "font-display text-[1.15rem] tracking-tight",
+            onDark ? "text-cream" : "text-ink",
+          )}
+        >
+          {site.shortName}
+        </span>
+        <span
+          className={cn(
+            "mt-1 text-[0.7rem] font-medium tracking-[0.16em] uppercase",
             onDark ? "text-cream/70" : "text-muted",
           )}
         >
@@ -42,16 +45,5 @@ export function Logo({
         </span>
       </span>
     </Link>
-  );
-}
-
-export function PlayDots({ className }: { className?: string }) {
-  return (
-    <span className={cn("inline-flex items-center gap-1.5", className)} aria-hidden="true">
-      <span className="size-2 rounded-full bg-terracotta" />
-      <span className="size-2 rounded-full bg-sunflower" />
-      <span className="size-2 rounded-full bg-aqua" />
-      <span className="size-2 rounded-full bg-leaf" />
-    </span>
   );
 }
