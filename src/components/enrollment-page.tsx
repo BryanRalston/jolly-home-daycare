@@ -1,6 +1,6 @@
 import { InquiryForm } from "@/components/inquiry-form";
 import { Button } from "@/components/ui/button";
-import { parentVoices, photos, providerFacts, trustItems } from "@/lib/content";
+import { parentVoices, providerFacts, trustItems } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -22,31 +22,44 @@ export function EnrollmentPage() {
 
 function Hero() {
   return (
-    <section className="relative isolate min-h-[78vh] overflow-hidden bg-forest">
-      <img
-        src={asset("images/porch.jpg")}
-        alt="Three children sitting together on the brick porch at Jolly Home Daycare."
-        className="absolute inset-0 size-full object-cover object-[50%_35%]"
+    <section className="relative isolate overflow-hidden bg-forest">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-30"
+        aria-hidden="true"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 18% 20%, rgba(193,122,92,0.35), transparent 42%), radial-gradient(circle at 88% 78%, rgba(251,246,238,0.12), transparent 38%)",
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/55 to-forest/20" />
-      <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-4 py-16 sm:px-6 lg:py-24">
-        <p className="reveal text-xs font-semibold tracking-[0.22em] text-cream/80 uppercase">
-          {site.address.neighborhood} · Leesburg, VA
-        </p>
-        <h1 className="reveal mt-4 max-w-xl font-display text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
-          Come see the house.
-        </h1>
-        <p className="reveal mt-5 max-w-lg text-base leading-relaxed text-cream/85 sm:text-lg">
-          A licensed family day home — meals included, a known adult at the door, and a short visit
-          so you can walk the rooms before you decide.
-        </p>
-        <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button asChild size="lg">
-            <a href="#visit">Request a visit</a>
-          </Button>
-          <Button asChild size="lg" variant="cream">
-            <a href={site.phoneHref}>Call {site.phone}</a>
-          </Button>
+      <div className="relative mx-auto grid min-h-[78vh] max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24">
+        <div>
+          <p className="reveal text-xs font-semibold tracking-[0.22em] text-cream/80 uppercase">
+            {site.address.neighborhood} · Leesburg, VA
+          </p>
+          <h1 className="reveal mt-4 max-w-xl font-display text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
+            Come see the house.
+          </h1>
+          <p className="reveal mt-5 max-w-lg text-base leading-relaxed text-cream/85 sm:text-lg">
+            A licensed family day home — meals included, a known adult at the door, and a short visit
+            so you can walk the rooms before you decide.
+          </p>
+          <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg">
+              <a href="#visit">Request a visit</a>
+            </Button>
+            <Button asChild size="lg" variant="cream">
+              <a href={site.phoneHref}>Call {site.phone}</a>
+            </Button>
+          </div>
+        </div>
+        <div className="reveal justify-self-center lg:justify-self-end">
+          <img
+            src={asset("images/logo.png")}
+            alt={`${site.name}. ${site.tagline}.`}
+            width={450}
+            height={450}
+            className="w-64 rounded-lg shadow-soft ring-1 ring-cream/10 sm:w-80 lg:w-[22rem]"
+          />
         </div>
       </div>
     </section>
@@ -75,30 +88,35 @@ function PhotoGrid() {
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
       <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">The house</p>
       <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-        Ordinary days, photographed as they happened.
+        A licensed family day home on Longhouse Place.
       </h2>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2">
-        {photos.map((photo, i) => (
-          <figure
-            key={photo.src}
-            className={cn(
-              "overflow-hidden rounded-lg bg-cream shadow-soft",
-              photo.span === "wide" && "sm:col-span-2 lg:row-span-2",
-            )}
-          >
-            <img
-              src={asset(photo.src)}
-              alt={photo.alt}
-              loading={i === 0 ? "eager" : "lazy"}
-              className={cn(
-                "w-full object-cover",
-                photo.span === "wide"
-                  ? "aspect-[4/3] h-full min-h-[16rem] lg:aspect-auto"
-                  : "aspect-[4/3]",
-              )}
-            />
-          </figure>
-        ))}
+      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <figure className="overflow-hidden rounded-lg bg-forest shadow-soft sm:col-span-2 lg:col-span-2">
+          <img
+            src={asset("images/logo.png")}
+            alt={`${site.name} logo. ${site.tagline}.`}
+            className="aspect-[16/10] w-full object-contain p-8 sm:p-12"
+          />
+        </figure>
+        <div className="flex min-h-[12rem] flex-col justify-end rounded-lg bg-terracotta p-6 text-cream shadow-soft">
+          <p className="font-display text-3xl leading-tight">{site.tagline}.</p>
+          <p className="mt-3 text-sm text-cream/85">
+            {site.address.neighborhood}, Leesburg.
+          </p>
+        </div>
+        <div
+          className="min-h-[10rem] rounded-lg shadow-soft"
+          style={{
+            background:
+              "repeating-linear-gradient(-12deg, #1b3022 0 14px, #2a4734 14px 28px)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="flex min-h-[10rem] items-end rounded-lg border border-line bg-cream p-6 shadow-soft sm:col-span-2">
+          <p className="max-w-md text-sm leading-relaxed text-muted">
+            Come walk the rooms on a visit. We don’t publish photos of the children in care.
+          </p>
+        </div>
       </div>
     </section>
   );

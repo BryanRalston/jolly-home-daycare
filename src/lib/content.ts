@@ -36,23 +36,7 @@ export const providerFacts = [
   "Program capacity 12 · teacher/student ratio 1:5",
 ] as const;
 
-export const photos = [
-  {
-    src: "images/porch.jpg",
-    alt: "Three young children sitting together on the brick porch step of the house.",
-    span: "wide" as const,
-  },
-  {
-    src: "images/birthday.jpg",
-    alt: "Ms. Jolly lighting a birthday cupcake candle for a child wearing a handmade crown.",
-    span: "tall" as const,
-  },
-  {
-    src: "images/halloween.jpg",
-    alt: "Ms. Jolly kneeling with children in Halloween costumes on the driveway.",
-    span: "tall" as const,
-  },
-] as const;
+/** Decorative panels only — no photographs of children. */
 
 /**
  * Short excerpts from public Care.com reviews (all shown as 5-star on that listing).
