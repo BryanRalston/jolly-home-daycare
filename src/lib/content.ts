@@ -36,7 +36,30 @@ export const providerFacts = [
   "Program capacity 12 · teacher/student ratio 1:5",
 ] as const;
 
-/** Decorative panels only — no photographs of children. */
+/**
+ * Generated mood stills — not photographs of the Leesburg house, playroom, or yard.
+ * Never caption these as “our” rooms or grounds.
+ */
+export const moodStills = [
+  {
+    id: "learning",
+    src: "images/still-books-blocks.png",
+    alt: "Still life of picture books, wooden alphabet blocks, and crayons.",
+    caption: "Learning",
+  },
+  {
+    id: "meals",
+    src: "images/still-snack.png",
+    alt: "Still life of apple slices and carrot sticks on a plate.",
+    caption: "Meals",
+  },
+  {
+    id: "warmth",
+    src: "images/still-abstract.png",
+    alt: "Still life of cream linen, an olive branch, and a terracotta vase.",
+    caption: "Warmth",
+  },
+] as const;
 
 /**
  * Short excerpts from public Care.com reviews (all shown as 5-star on that listing).
