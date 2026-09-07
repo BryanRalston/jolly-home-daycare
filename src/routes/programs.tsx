@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { asset } from "@/lib/assets";
 import { site } from "@/lib/site";
 
 export const Route = createFileRoute("/programs")({
@@ -22,23 +21,20 @@ const programs = [
   {
     title: "Infants",
     ages: "From 2 months",
-    image: "images/porch.jpg",
-    alt: "Young children sitting together on the brick porch.",
     copy: "The Care.com listing states openings for infants from 2 months. Meals — breakfast, lunch, snacks, and dinner — are included.",
+    panel: "bg-forest text-cream",
   },
   {
     title: "Toddlers & preschool",
     ages: "Through age 5 · preschool curriculum ages 2+",
-    image: "images/birthday.jpg",
-    alt: "A birthday at the house with Ms. Jolly and two children.",
     copy: "Everyday activities listed on Care.com include poems, rhymes, alphabet, phonics, numbers, shapes, colors, puzzles, and colors and numbers in English and Spanish. Preschool curriculum for ages 2 and up is included, with lots of free play.",
+    panel: "bg-terracotta text-cream",
   },
   {
     title: "Before & after school",
     ages: "School-age",
-    image: "images/halloween.jpg",
-    alt: "Ms. Jolly with children in costumes outside the house.",
     copy: "The listing also notes openings for before- and after-schoolers. Hours are Monday–Friday, 7:30 AM – 5:30 PM. Capacity is 12, with a listed teacher/student ratio of 1:5.",
+    panel: "bg-cream text-ink border border-line",
   },
 ] as const;
 
@@ -66,13 +62,10 @@ function Programs() {
               <h2 className="mt-2 font-display text-3xl text-ink">{p.title}</h2>
               <p className="mt-5 text-sm leading-relaxed text-muted">{p.copy}</p>
             </div>
-            <div className={i % 2 === 1 ? "lg:order-1" : undefined}>
-              <img
-                src={asset(p.image)}
-                alt={p.alt}
-                loading="lazy"
-                className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
-              />
+            <div
+              className={`flex aspect-[4/3] items-end rounded-lg p-6 shadow-soft sm:p-8 ${p.panel} ${i % 2 === 1 ? "lg:order-1" : ""}`}
+            >
+              <p className="font-display text-3xl leading-tight">{p.title}</p>
             </div>
           </article>
         ))}

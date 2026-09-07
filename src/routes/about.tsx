@@ -36,15 +36,16 @@ function About() {
 
       <section className="mx-auto grid max-w-6xl gap-4 px-4 pb-16 sm:grid-cols-2 sm:px-6">
         <img
-          src={asset("images/birthday.jpg")}
-          alt="Ms. Jolly lighting a birthday cupcake candle for a child at the house."
-          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
+          src={asset("images/logo.png")}
+          alt={`${site.name} logo. ${site.tagline}.`}
+          className="aspect-[4/3] w-full rounded-lg bg-forest object-contain p-10 shadow-soft"
         />
-        <img
-          src={asset("images/halloween.jpg")}
-          alt="Ms. Jolly kneeling with children in Halloween costumes."
-          className="aspect-[4/3] w-full rounded-lg object-cover object-top shadow-soft"
-        />
+        <div className="flex aspect-[4/3] flex-col justify-end rounded-lg bg-terracotta p-6 text-cream shadow-soft sm:p-8">
+          <p className="font-display text-3xl leading-tight">{site.tagline}.</p>
+          <p className="mt-3 text-sm text-cream/85">
+            License {site.license.number} · Capacity {site.license.capacity}
+          </p>
+        </div>
       </section>
 
       <section className="border-y border-line bg-cream">
