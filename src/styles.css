@@ -73,6 +73,11 @@
     outline-offset: 3px;
   }
 
+  #visit,
+  #visit :is(input, textarea, label, legend, button, fieldset) {
+    scroll-margin-top: 6.5rem;
+  }
+
   ::selection {
     background-color: color-mix(in oklab, var(--color-terracotta) 35%, transparent);
     color: var(--color-ink);

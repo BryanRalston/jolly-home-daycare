@@ -178,7 +178,7 @@ function ParentVoices() {
 
 function VisitSection() {
   return (
-    <section id="visit" className="scroll-mt-24 border-y border-line bg-forest">
+    <section id="visit" className="scroll-mt-32 border-y border-line bg-forest">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:py-20">
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
