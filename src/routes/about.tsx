@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { providerFacts } from "@/lib/content";
+import { moodStills, providerFacts } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 
@@ -40,12 +40,17 @@ function About() {
           alt={`${site.name} logo. ${site.tagline}.`}
           className="aspect-[4/3] w-full rounded-lg bg-forest object-contain p-10 shadow-soft"
         />
-        <div className="flex aspect-[4/3] flex-col justify-end rounded-lg bg-terracotta p-6 text-cream shadow-soft sm:p-8">
-          <p className="font-display text-3xl leading-tight">{site.tagline}.</p>
-          <p className="mt-3 text-sm text-cream/85">
-            License {site.license.number} · Capacity {site.license.capacity}
-          </p>
-        </div>
+        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
+          <img
+            src={asset(moodStills[0].src)}
+            alt={moodStills[0].alt}
+            className="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption className="px-4 py-3 text-sm text-muted">
+            <span className="font-medium text-ink">{moodStills[0].caption}.</span> A generated still
+            life, not a photograph of the home.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="border-y border-line bg-cream">

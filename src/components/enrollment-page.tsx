@@ -1,6 +1,6 @@
 import { InquiryForm } from "@/components/inquiry-form";
 import { Button } from "@/components/ui/button";
-import { parentVoices, providerFacts, trustItems } from "@/lib/content";
+import { moodStills, parentVoices, providerFacts, trustItems } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -84,39 +84,47 @@ function TrustStrip() {
 }
 
 function PhotoGrid() {
+  const [learning, meals, warmth] = moodStills;
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">The house</p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
+        Still lifes
+      </p>
       <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-        A licensed family day home on Longhouse Place.
+        Learning, meals, warmth.
       </h2>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <figure className="overflow-hidden rounded-lg bg-forest shadow-soft sm:col-span-2 lg:col-span-2">
+      <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+        Generated still lifes for mood — not photographs of the Leesburg house. Come walk the rooms
+        on a visit. We don’t publish photos of the children in care.
+      </p>
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft sm:col-span-2">
           <img
-            src={asset("images/logo.png")}
-            alt={`${site.name} logo. ${site.tagline}.`}
-            className="aspect-[16/10] w-full object-contain p-8 sm:p-12"
+            src={asset(learning.src)}
+            alt={learning.alt}
+            className="aspect-[16/9] w-full object-cover"
           />
+          <figcaption className="px-4 py-3 text-sm text-muted">
+            <span className="font-medium text-ink">{learning.caption}.</span> {learning.alt}
+          </figcaption>
         </figure>
-        <div className="flex min-h-[12rem] flex-col justify-end rounded-lg bg-terracotta p-6 text-cream shadow-soft">
-          <p className="font-display text-3xl leading-tight">{site.tagline}.</p>
-          <p className="mt-3 text-sm text-cream/85">
-            {site.address.neighborhood}, Leesburg.
-          </p>
-        </div>
-        <div
-          className="min-h-[10rem] rounded-lg shadow-soft"
-          style={{
-            background:
-              "repeating-linear-gradient(-12deg, #1b3022 0 14px, #2a4734 14px 28px)",
-          }}
-          aria-hidden="true"
-        />
-        <div className="flex min-h-[10rem] items-end rounded-lg border border-line bg-cream p-6 shadow-soft sm:col-span-2">
-          <p className="max-w-md text-sm leading-relaxed text-muted">
-            Come walk the rooms on a visit. We don’t publish photos of the children in care.
-          </p>
-        </div>
+        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
+          <img src={asset(meals.src)} alt={meals.alt} className="aspect-[4/3] w-full object-cover" />
+          <figcaption className="px-4 py-3 text-sm text-muted">
+            <span className="font-medium text-ink">{meals.caption}.</span> {meals.alt}
+          </figcaption>
+        </figure>
+        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
+          <img
+            src={asset(warmth.src)}
+            alt={warmth.alt}
+            className="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption className="px-4 py-3 text-sm text-muted">
+            <span className="font-medium text-ink">{warmth.caption}.</span> {warmth.alt}
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
@@ -195,9 +203,21 @@ function ParentVoices() {
 }
 
 function VisitSection() {
+  const warmth = moodStills[2];
+
   return (
-    <section id="visit" className="scroll-mt-32 border-y border-line bg-forest">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:py-20">
+    <section id="visit" className="relative isolate scroll-mt-32 overflow-hidden border-y border-line bg-forest">
+      <img
+        src={asset(warmth.src)}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.18]"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-forest/80"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:py-20">
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
             Request a visit
