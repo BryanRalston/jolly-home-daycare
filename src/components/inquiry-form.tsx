@@ -7,6 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
+
+const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] as const;
+const VISIT_TIMES = ["Morning", "Afternoon", "Either"] as const;
 
 type Inquiry = {
   parentName: string;
@@ -15,6 +19,8 @@ type Inquiry = {
   childName: string;
   childAge: string;
   startDate: string;
+  visitDays: string[];
+  visitTime: string;
   notes: string;
   submittedAt: string;
 };
@@ -26,6 +32,8 @@ const empty: Omit<Inquiry, "submittedAt"> = {
   childName: "",
   childAge: "",
   startDate: "",
+  visitDays: [],
+  visitTime: "",
   notes: "",
 };
 
@@ -37,6 +45,15 @@ export function InquiryForm() {
   const [done, setDone] = useState<Inquiry | null>(null);
   const [sending, setSending] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+
+  function toggleDay(day: (typeof WEEKDAYS)[number]) {
+    setValues((v) => ({
+      ...v,
+      visitDays: v.visitDays.includes(day)
+        ? v.visitDays.filter((d) => d !== day)
+        : [...v.visitDays, day],
+    }));
+  }
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -85,6 +102,8 @@ export function InquiryForm() {
           childName: inquiry.childName || "(not given)",
           childAge: inquiry.childAge || "(not given)",
           startDate: inquiry.startDate || "(not given)",
+          visitDays: inquiry.visitDays.join(", ") || "(not given)",
+          visitTime: inquiry.visitTime || "(not given)",
           notes: inquiry.notes || "(none)",
         }),
       });
@@ -107,13 +126,13 @@ export function InquiryForm() {
 
   if (done) {
     return (
-      <div className="rounded-xl border border-line bg-surface p-6 sm:p-8">
-        <CheckCircle2 className="size-8 text-leaf" aria-hidden="true" />
-        <h3 className="mt-4 font-display text-2xl font-semibold text-ink">We have your note.</h3>
+      <div className="rounded-lg border border-line bg-surface p-6 shadow-soft sm:p-8">
+        <CheckCircle2 className="size-8 text-forest" aria-hidden="true" />
+        <h3 className="mt-4 font-display text-2xl text-ink">We’ll follow up about a visit.</h3>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-muted">
           Thank you, {done.parentName}. We’ll be in touch at {done.email}
-          {done.phone ? ` or ${done.phone}` : ""} to talk through openings and set a time to visit
-          the house.
+          {done.phone ? ` or ${done.phone}` : ""} to talk through openings and set a time to see the
+          house.
         </p>
         <Button
           type="button"
@@ -131,11 +150,11 @@ export function InquiryForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="relative rounded-xl border border-line bg-surface p-5 sm:p-8">
-      <div
-        aria-hidden="true"
-        className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
-      >
+    <form
+      onSubmit={onSubmit}
+      className="relative rounded-lg border border-line bg-surface p-5 shadow-soft sm:p-8"
+    >
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
         <label>
           Leave blank
           <input
@@ -185,6 +204,7 @@ export function InquiryForm() {
           <Input
             id="childName"
             name="childName"
+            autoComplete="off"
             value={values.childName}
             onChange={(e) => setValues((v) => ({ ...v, childName: e.target.value }))}
           />
@@ -193,6 +213,7 @@ export function InquiryForm() {
           <Input
             id="childAge"
             name="childAge"
+            inputMode="text"
             placeholder="e.g. 9 months, 3 years"
             value={values.childAge}
             onChange={(e) => setValues((v) => ({ ...v, childAge: e.target.value }))}
@@ -207,6 +228,61 @@ export function InquiryForm() {
             onChange={(e) => setValues((v) => ({ ...v, startDate: e.target.value }))}
           />
         </Field>
+        <fieldset className="sm:col-span-2">
+          <legend className="text-sm font-medium text-ink">Preferred visit days</legend>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {WEEKDAYS.map((day) => {
+              const selected = values.visitDays.includes(day);
+              return (
+                <label
+                  key={day}
+                  className={cn(
+                    "inline-flex min-h-11 cursor-pointer items-center rounded-md border px-3.5 text-sm",
+                    selected
+                      ? "border-forest bg-forest text-cream"
+                      : "border-line bg-cream text-ink hover:border-terracotta",
+                  )}
+                >
+                  <input
+                    type="checkbox"
+                    className="sr-only"
+                    checked={selected}
+                    onChange={() => toggleDay(day)}
+                  />
+                  {day.slice(0, 3)}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+        <fieldset className="sm:col-span-2">
+          <legend className="text-sm font-medium text-ink">Preferred visit time</legend>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {VISIT_TIMES.map((time) => {
+              const selected = values.visitTime === time;
+              return (
+                <label
+                  key={time}
+                  className={cn(
+                    "inline-flex min-h-11 cursor-pointer items-center rounded-md border px-3.5 text-sm",
+                    selected
+                      ? "border-forest bg-forest text-cream"
+                      : "border-line bg-cream text-ink hover:border-terracotta",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="visitTime"
+                    className="sr-only"
+                    checked={selected}
+                    onChange={() => setValues((v) => ({ ...v, visitTime: time }))}
+                  />
+                  {time}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
         <div className="sm:col-span-2">
           <Field label="Anything we should know?" htmlFor="notes">
             <Textarea
@@ -219,10 +295,10 @@ export function InquiryForm() {
           </Field>
         </div>
       </div>
-      {error ? <p className="mt-4 text-sm text-terracotta-dark">{error}</p> : null}
+      {error ? <p className="mt-4 text-sm text-terracotta-deep">{error}</p> : null}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-muted">
-          We’ll only use this to follow up about enrollment. No mailing lists.
+          We’ll follow up about a visit. We only use this to reply — no mailing lists.
         </p>
         <Button type="submit" size="lg" disabled={sending}>
           {sending ? "Sending…" : "Request a visit"}
