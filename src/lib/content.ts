@@ -18,7 +18,7 @@ export const trustBar = [
   "VA licensed (#1106308)",
   "Capacity 12",
   "Ratio 1:5",
-  "CPR / First Aid / MAT",
+  "CPR / First Aid",
   "Background checked",
 ] as const;
 
@@ -71,11 +71,10 @@ export const earlyLearning = [
   "Colors and numbers in English and Spanish",
 ] as const;
 
-/** Compact chips for Meet Ms. Jolly — spell out MAT once in nearby prose. */
+/** Compact chips for Meet Ms. Jolly. */
 export const credentialChips = [
   "Adult & Child CPR",
   "First-Aid",
-  "MAT",
   "Background checked",
 ] as const;
 
@@ -93,8 +92,8 @@ export const safetyItems = [
     body: "Licensed family day home, license 1106308.",
   },
   {
-    title: "CPR, First-Aid, and MAT",
-    body: "Certified in Adult and Child CPR, First-Aid, and Medication Administration Training (MAT).",
+    title: "CPR and First-Aid",
+    body: "Certified in Adult and Child CPR and First-Aid.",
   },
   {
     title: "Background checked",

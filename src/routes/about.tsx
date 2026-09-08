@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Farhana Abid (Ms. Jolly) runs a Virginia-licensed family day home in Potomac Station, Leesburg. CPR, First-Aid, and MAT certified. Serving families since 2000.",
+          "Farhana Abid (Ms. Jolly) runs a Virginia-licensed family day home in Potomac Station, Leesburg. CPR and First-Aid certified. Serving families since 2000.",
       },
     ],
     links: [{ rel: "canonical", href: `${site.publicUrl}/about` }],
@@ -61,8 +61,8 @@ function About() {
               Credentials
             </p>
             <p className="mt-3 text-base leading-relaxed text-muted">
-              Certified in Adult and Child CPR, First-Aid, and Medication Administration Training
-              (MAT). Criminal and Child Protective Agency background checked.
+              Certified in Adult and Child CPR and First-Aid. Criminal and Child Protective Agency
+              background checked.
             </p>
             <FactChips items={credentialChips} className="mt-5" />
           </div>
