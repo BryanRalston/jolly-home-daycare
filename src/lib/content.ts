@@ -36,6 +36,14 @@ export const providerFacts = [
   "Program capacity 12 · teacher/student ratio 1:5",
 ] as const;
 
+/** Chosen exterior illustration — not a photograph, and no house number on the facade. */
+export const houseFacade = {
+  src: "images/house-facade.jpg",
+  alt: "Illustration of a two-story brick and white-sided family home at sunset. No people.",
+  caption: "Our home",
+  note: "An illustration of the family day home. The real door is on Longhouse Place — come see it on a visit.",
+} as const;
+
 /**
  * Generated mood stills — not photographs of the Leesburg house, playroom, or yard.
  * Never caption these as “our” rooms or grounds.

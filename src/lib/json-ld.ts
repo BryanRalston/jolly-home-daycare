@@ -7,7 +7,11 @@ export function localBusinessJsonLd() {
     name: site.name,
     description: site.description,
     url: site.publicUrl,
-    image: [`${site.publicUrl}/og.jpg`, `${site.publicUrl}/images/logo.png`],
+    image: [
+      `${site.publicUrl}/og.jpg`,
+      `${site.publicUrl}/images/logo.png`,
+      `${site.publicUrl}/images/house-facade.jpg`,
+    ],
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,
     address: {
