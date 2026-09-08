@@ -18,14 +18,14 @@ const VisitLink = forwardRef<
   if (onEnrollment) {
     return (
       <a href="#visit" ref={ref} className={className} onClick={onClick}>
-        Request a visit
+        Schedule a Visit
       </a>
     );
   }
 
   return (
     <Link to="/enrollment" hash="visit" ref={ref} className={className} onClick={onClick}>
-      Request a visit
+      Schedule a Visit
     </Link>
   );
 });

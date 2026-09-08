@@ -6,8 +6,9 @@ export const site = {
   providerName: "Farhana Abid",
   providerHonorific: "Ms. Jolly",
   tagline: "Home away from home",
+  since: 2000,
   description:
-    "Licensed family day home in Potomac Station, Leesburg, Virginia. Infants from 2 months through age 5, plus before- and after-school care. Meals included.",
+    "Licensed family day home and home daycare in Potomac Station, Leesburg, Virginia. Infants from 2 months through preschool, plus before- and after-school care. Serving families since 2000.",
   address: {
     street: "18945 Longhouse Place",
     city: "Leesburg",

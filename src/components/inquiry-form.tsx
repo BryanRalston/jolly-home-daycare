@@ -11,6 +11,20 @@ import { cn } from "@/lib/utils";
 
 const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] as const;
 const VISIT_TIMES = ["Morning", "Afternoon", "Either"] as const;
+const CARE_NEEDED = [
+  "Full-time",
+  "Part-time",
+  "Before school",
+  "After school",
+  "Before & after school",
+] as const;
+const HEARD_ABOUT = [
+  "Friend or family",
+  "Care.com",
+  "Neighborhood / drove by",
+  "Internet search",
+  "Other",
+] as const;
 
 type Inquiry = {
   parentName: string;
@@ -19,6 +33,8 @@ type Inquiry = {
   childName: string;
   childAge: string;
   startDate: string;
+  careNeeded: string;
+  heardAbout: string;
   visitDays: string[];
   visitTime: string;
   notes: string;
@@ -32,6 +48,8 @@ const empty: Omit<Inquiry, "submittedAt"> = {
   childName: "",
   childAge: "",
   startDate: "",
+  careNeeded: "",
+  heardAbout: "",
   visitDays: [],
   visitTime: "",
   notes: "",
@@ -102,6 +120,8 @@ export function InquiryForm() {
           childName: inquiry.childName || "(not given)",
           childAge: inquiry.childAge || "(not given)",
           startDate: inquiry.startDate || "(not given)",
+          careNeeded: inquiry.careNeeded || "(not given)",
+          heardAbout: inquiry.heardAbout || "(not given)",
           visitDays: inquiry.visitDays.join(", ") || "(not given)",
           visitTime: inquiry.visitTime || "(not given)",
           notes: inquiry.notes || "(none)",
@@ -229,6 +249,52 @@ export function InquiryForm() {
           />
         </Field>
         <fieldset className="sm:col-span-2">
+          <legend className="text-sm font-medium text-ink">Care needed</legend>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {CARE_NEEDED.map((option) => {
+              const selected = values.careNeeded === option;
+              return (
+                <label
+                  key={option}
+                  className={cn(
+                    "inline-flex min-h-11 cursor-pointer items-center rounded-md border px-3.5 text-sm",
+                    selected
+                      ? "border-forest bg-forest text-cream"
+                      : "border-line bg-cream text-ink hover:border-terracotta",
+                  )}
+                >
+                  <input
+                    type="radio"
+                    name="careNeeded"
+                    className="sr-only"
+                    checked={selected}
+                    onChange={() => setValues((v) => ({ ...v, careNeeded: option }))}
+                  />
+                  {option}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+        <div className="sm:col-span-2">
+          <Field label="How did you hear about us?" htmlFor="heardAbout">
+            <select
+              id="heardAbout"
+              name="heardAbout"
+              value={values.heardAbout}
+              onChange={(e) => setValues((v) => ({ ...v, heardAbout: e.target.value }))}
+              className="flex h-11 w-full rounded-md border border-line bg-surface px-3.5 text-base text-ink focus-visible:ring-2 focus-visible:ring-terracotta/40 focus-visible:outline-none md:text-sm"
+            >
+              <option value="">Select one (optional)</option>
+              {HEARD_ABOUT.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </Field>
+        </div>
+        <fieldset className="sm:col-span-2">
           <legend className="text-sm font-medium text-ink">Preferred visit days</legend>
           <div className="mt-2 flex flex-wrap gap-2">
             {WEEKDAYS.map((day) => {
@@ -301,7 +367,7 @@ export function InquiryForm() {
           We only use this to reply.
         </p>
         <Button type="submit" size="lg" disabled={sending}>
-          {sending ? "Sending…" : "Request a visit"}
+          {sending ? "Sending…" : "Schedule a Visit"}
         </Button>
       </div>
     </form>

@@ -6,11 +6,11 @@ export const Route = createFileRoute("/")({
   component: EnrollmentPage,
   head: () => ({
     meta: [
-      { title: "Jolly Home Daycare · Family Daycare in Leesburg, VA" },
+      { title: "Jolly Home Daycare · Licensed Family Day Home in Potomac Station, Leesburg, VA" },
       {
         name: "description",
         content:
-          "Request a visit at Jolly Home Daycare, a licensed family day home in Potomac Station, Leesburg, VA. Infants from 2 months through age 5, plus before- and after-school care.",
+          "Licensed family day home and home daycare in Potomac Station, Leesburg. Infants from 2 months through preschool, plus before- and after-school care. Schedule a visit with Ms. Jolly.",
       },
     ],
     links: [{ rel: "canonical", href: site.publicUrl }],
