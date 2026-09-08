@@ -1,6 +1,6 @@
 import { InquiryForm } from "@/components/inquiry-form";
 import { Button } from "@/components/ui/button";
-import { moodStills, parentVoices, providerFacts, trustItems } from "@/lib/content";
+import { houseFacade, moodStills, parentVoices, providerFacts, trustItems } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -22,24 +22,32 @@ export function EnrollmentPage() {
 
 function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-forest">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-30"
-        aria-hidden="true"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 18% 20%, rgba(193,122,92,0.35), transparent 42%), radial-gradient(circle at 88% 78%, rgba(251,246,238,0.12), transparent 38%)",
-        }}
+    <section className="relative isolate min-h-[78vh] overflow-hidden bg-forest">
+      <img
+        src={asset(houseFacade.src)}
+        alt={houseFacade.alt}
+        className="absolute inset-0 h-full w-full object-cover object-[center_70%]"
       />
-      <div className="relative mx-auto grid min-h-[78vh] max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:py-24">
-        <div>
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-forest via-forest/80 to-forest/20"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto flex min-h-[78vh] max-w-6xl items-end px-4 py-16 sm:items-center sm:px-6 lg:py-24">
+        <div className="max-w-xl">
+          <img
+            src={asset("images/logo.png")}
+            alt={`${site.name}. ${site.tagline}.`}
+            width={96}
+            height={96}
+            className="reveal mb-6 h-16 w-16 rounded-md shadow-soft ring-1 ring-cream/15 sm:h-20 sm:w-20"
+          />
           <p className="reveal text-xs font-semibold tracking-[0.22em] text-cream/80 uppercase">
             {site.address.neighborhood} · Leesburg, VA
           </p>
-          <h1 className="reveal mt-4 max-w-xl font-display text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
+          <h1 className="reveal mt-4 font-display text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
             Come see the house.
           </h1>
-          <p className="reveal mt-5 max-w-lg text-base leading-relaxed text-cream/85 sm:text-lg">
+          <p className="reveal mt-5 text-base leading-relaxed text-cream/85 sm:text-lg">
             A licensed family day home — meals included, a known adult at the door, and a short visit
             so you can walk the rooms before you decide.
           </p>
@@ -51,15 +59,6 @@ function Hero() {
               <a href={site.phoneHref}>Call {site.phone}</a>
             </Button>
           </div>
-        </div>
-        <div className="reveal justify-self-center lg:justify-self-end">
-          <img
-            src={asset("images/logo.png")}
-            alt={`${site.name}. ${site.tagline}.`}
-            width={450}
-            height={450}
-            className="w-64 rounded-lg shadow-soft ring-1 ring-cream/10 sm:w-80 lg:w-[22rem]"
-          />
         </div>
       </div>
     </section>
@@ -88,17 +87,26 @@ function PhotoGrid() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
-        Still lifes
-      </p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">Our home</p>
       <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-        Learning, meals, warmth.
+        The house, then the everyday mood.
       </h2>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
-        Generated still lifes for mood — not photographs of the Leesburg house. Come walk the rooms
-        on a visit. We don’t publish photos of the children in care.
+        The exterior is an illustration of the family day home — not a photograph, and not a photo of
+        children. The still lifes below are mood images for learning, meals, and warmth. Come walk
+        the rooms on a visit.
       </p>
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft sm:col-span-2">
+          <img
+            src={asset(houseFacade.src)}
+            alt={houseFacade.alt}
+            className="aspect-[16/9] w-full object-cover object-[center_70%]"
+          />
+          <figcaption className="px-4 py-3 text-sm text-muted">
+            <span className="font-medium text-ink">{houseFacade.caption}.</span> {houseFacade.note}
+          </figcaption>
+        </figure>
         <figure className="overflow-hidden rounded-lg bg-cream shadow-soft sm:col-span-2">
           <img
             src={asset(learning.src)}

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { moodStills, providerFacts } from "@/lib/content";
+import { houseFacade, providerFacts } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 
@@ -42,13 +42,12 @@ function About() {
         />
         <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
           <img
-            src={asset(moodStills[0].src)}
-            alt={moodStills[0].alt}
-            className="aspect-[4/3] w-full object-cover"
+            src={asset(houseFacade.src)}
+            alt={houseFacade.alt}
+            className="aspect-[4/3] w-full object-cover object-[center_70%]"
           />
           <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{moodStills[0].caption}.</span> A generated still
-            life, not a photograph of the home.
+            <span className="font-medium text-ink">{houseFacade.caption}.</span> {houseFacade.note}
           </figcaption>
         </figure>
       </section>
