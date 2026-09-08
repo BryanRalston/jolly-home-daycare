@@ -266,8 +266,8 @@ function MeetMsJolly() {
           spend the day with one familiar caregiver.
         </p>
         <p className="mt-4 text-base leading-relaxed text-muted">
-          She is certified in Adult and Child CPR, First-Aid, and Medication Administration
-          Training (MAT), and is criminal and Child Protective Agency background checked.
+          She is certified in Adult and Child CPR and First-Aid, and is criminal and Child
+          Protective Agency background checked.
         </p>
         <FactChips items={credentialChips} className="mt-6" />
         <p className="mt-6 text-sm text-muted">
