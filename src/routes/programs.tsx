@@ -64,19 +64,11 @@ function Programs() {
               <h2 className="mt-2 font-display text-3xl text-ink">{p.title}</h2>
               <p className="mt-5 text-sm leading-relaxed text-muted">{p.copy}</p>
             </div>
-            <figure
-              className={`overflow-hidden rounded-lg bg-cream shadow-soft ${i % 2 === 1 ? "lg:order-1" : ""}`}
-            >
-              <img
-                src={asset(p.still.src)}
-                alt={p.still.alt}
-                className="aspect-[4/3] w-full object-cover"
-              />
-              <figcaption className="px-4 py-3 text-sm text-muted">
-                <span className="font-medium text-ink">{p.still.caption}.</span> A generated still
-                life, not a photograph of the home.
-              </figcaption>
-            </figure>
+            <img
+              src={asset(p.still.src)}
+              alt={p.still.alt}
+              className={`aspect-[4/3] w-full rounded-lg object-cover shadow-soft ${i % 2 === 1 ? "lg:order-1" : ""}`}
+            />
           </article>
         ))}
       </section>

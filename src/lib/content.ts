@@ -36,12 +36,10 @@ export const providerFacts = [
   "Program capacity 12 · teacher/student ratio 1:5",
 ] as const;
 
-/** Chosen exterior illustration — not a photograph, and no house number on the facade. */
+/** Chosen exterior illustration — not a photograph of children. */
 export const houseFacade = {
   src: "images/house-facade.jpg",
   alt: "Illustration of a two-story brick and white-sided family home at sunset. No people.",
-  caption: "Our home",
-  note: "An illustration of the family day home. The real door is on Longhouse Place — come see it on a visit.",
 } as const;
 
 /**
@@ -53,19 +51,16 @@ export const moodStills = [
     id: "learning",
     src: "images/still-books-blocks.png",
     alt: "Still life of picture books, wooden alphabet blocks, and crayons.",
-    caption: "Learning",
   },
   {
     id: "meals",
     src: "images/still-snack.png",
     alt: "Still life of apple slices and carrot sticks on a plate.",
-    caption: "Meals",
   },
   {
     id: "warmth",
     src: "images/still-abstract.png",
     alt: "Still life of cream linen, an olive branch, and a terracotta vase.",
-    caption: "Warmth",
   },
 ] as const;
 
