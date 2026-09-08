@@ -9,9 +9,9 @@ import appCss from "../styles.css?url";
 import { asset } from "@/lib/assets";
 import { site } from "@/lib/site";
 
-const title = "Jolly Home Daycare · Family Daycare in Leesburg, VA";
+const title = "Jolly Home Daycare · Licensed Family Day Home in Potomac Station, Leesburg, VA";
 const description =
-  "Licensed family day home in Potomac Station, Leesburg, Virginia. Infants from 2 months through age 5, plus before- and after-school care. Request a visit at Jolly Home Daycare.";
+  "Licensed family day home and home daycare in Potomac Station, Leesburg, Virginia. Infants from 2 months through preschool, plus before- and after-school care. Serving families since 2000.";
 const ogImage = `${site.publicUrl}/og.jpg`;
 
 export const Route = createRootRoute({

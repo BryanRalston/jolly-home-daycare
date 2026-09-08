@@ -8,11 +8,11 @@ export const Route = createFileRoute("/about")({
   component: About,
   head: () => ({
     meta: [
-      { title: `About · ${site.name} · Leesburg, VA` },
+      { title: `Meet Ms. Jolly · ${site.name} · Leesburg Family Day Home` },
       {
         name: "description",
         content:
-          "Farhana Abid (Ms. Jolly) runs a Virginia-licensed family day home in Potomac Station, Leesburg. CPR, First-Aid, and MAT certified. In business since 2000.",
+          "Farhana Abid (Ms. Jolly) runs a Virginia-licensed family day home in Potomac Station, Leesburg. CPR, First-Aid, and MAT certified. Serving families since 2000.",
       },
     ],
     links: [{ rel: "canonical", href: `${site.publicUrl}/about` }],
@@ -23,14 +23,20 @@ function About() {
   return (
     <main className="pb-24 md:pb-0">
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
-        <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">About</p>
+        <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
+          Meet Ms. Jolly
+        </p>
         <h1 className="mt-3 max-w-2xl font-display text-4xl leading-tight text-ink sm:text-5xl">
           {site.providerName}, {site.providerHonorific}
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-          A Virginia-licensed family day home at {addressLine}. In business since 2000. Openings for
-          infants from 2 months through age 5, and before- and after-school care. Tuition is shared
-          in person.
+          Farhana Abid — families know her as Ms. Jolly — has cared for children in her Potomac
+          Station home since {site.since}. She calls it a home away from home: a licensed family day
+          home at {addressLine}.
+        </p>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+          Care for infants from 2 months through age 5, plus before- and after-school care. Tuition
+          is shared in person.
         </p>
       </section>
 
@@ -49,9 +55,11 @@ function About() {
 
       <section className="border-y border-line bg-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-3xl text-ink">About the program</h2>
-          <p className="mt-3 max-w-2xl text-sm text-muted">
-            Tuition is shared in person. Parents on Care.com rate the program 5.0 from ten reviews.
+          <h2 className="font-display text-3xl text-ink">Credentials &amp; the day</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
+            Certified in Adult and Child CPR, First-Aid, and Medication Administration Training
+            (MAT). Criminal and Child Protective Agency background checked. Parents on Care.com rate
+            the program 5.0 from ten reviews.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {providerFacts.map((fact) => (
@@ -63,12 +71,9 @@ function About() {
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-sm text-muted">
-            Families on Care.com have rated the program 5.0 from ten reviews.
-          </p>
           <Button asChild size="lg" className="mt-8">
             <Link to="/enrollment" hash="visit">
-              Request a visit
+              Schedule a Visit
             </Link>
           </Button>
         </div>

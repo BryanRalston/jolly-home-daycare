@@ -33,7 +33,7 @@ export function StickyVisitCta() {
     return (
       <div className={className}>
         <a href="#visit" className={inner}>
-          Request a visit
+          Schedule a Visit
         </a>
       </div>
     );
@@ -42,7 +42,7 @@ export function StickyVisitCta() {
   return (
     <div className={className}>
       <Link to="/enrollment" hash="visit" className={inner}>
-        Request a visit
+        Schedule a Visit
       </Link>
     </div>
   );
