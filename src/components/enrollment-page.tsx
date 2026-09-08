@@ -97,42 +97,26 @@ function PhotoGrid() {
         the rooms on a visit.
       </p>
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft sm:col-span-2">
-          <img
-            src={asset(houseFacade.src)}
-            alt={houseFacade.alt}
-            className="aspect-[16/9] w-full object-cover object-[center_70%]"
-          />
-          <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{houseFacade.caption}.</span> {houseFacade.note}
-          </figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft sm:col-span-2">
-          <img
-            src={asset(learning.src)}
-            alt={learning.alt}
-            className="aspect-[16/9] w-full object-cover"
-          />
-          <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{learning.caption}.</span> {learning.alt}
-          </figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
-          <img src={asset(meals.src)} alt={meals.alt} className="aspect-[4/3] w-full object-cover" />
-          <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{meals.caption}.</span> {meals.alt}
-          </figcaption>
-        </figure>
-        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
-          <img
-            src={asset(warmth.src)}
-            alt={warmth.alt}
-            className="aspect-[4/3] w-full object-cover"
-          />
-          <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{warmth.caption}.</span> {warmth.alt}
-          </figcaption>
-        </figure>
+        <img
+          src={asset(houseFacade.src)}
+          alt={houseFacade.alt}
+          className="aspect-[16/9] w-full rounded-lg object-cover object-[center_70%] shadow-soft sm:col-span-2"
+        />
+        <img
+          src={asset(learning.src)}
+          alt={learning.alt}
+          className="aspect-[16/9] w-full rounded-lg object-cover shadow-soft sm:col-span-2"
+        />
+        <img
+          src={asset(meals.src)}
+          alt={meals.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
+        />
+        <img
+          src={asset(warmth.src)}
+          alt={warmth.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
+        />
       </div>
     </section>
   );

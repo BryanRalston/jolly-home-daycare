@@ -40,16 +40,11 @@ function About() {
           alt={`${site.name} logo. ${site.tagline}.`}
           className="aspect-[4/3] w-full rounded-lg bg-forest object-contain p-10 shadow-soft"
         />
-        <figure className="overflow-hidden rounded-lg bg-cream shadow-soft">
-          <img
-            src={asset(houseFacade.src)}
-            alt={houseFacade.alt}
-            className="aspect-[4/3] w-full object-cover object-[center_70%]"
-          />
-          <figcaption className="px-4 py-3 text-sm text-muted">
-            <span className="font-medium text-ink">{houseFacade.caption}.</span> {houseFacade.note}
-          </figcaption>
-        </figure>
+        <img
+          src={asset(houseFacade.src)}
+          alt={houseFacade.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover object-[center_70%] shadow-soft"
+        />
       </section>
 
       <section className="border-y border-line bg-cream">
