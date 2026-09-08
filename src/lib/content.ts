@@ -32,14 +32,12 @@ export const providerFacts = [
   "Colors and numbers in English and Spanish",
   "Preschool curriculum for ages 2 and up",
   "Criminal and Child Protective Agency background checked",
-  "In business since 2000",
   "Program capacity 12 · teacher/student ratio 1:5",
 ] as const;
 
-/** Chosen exterior illustration — not a photograph of children. */
 export const houseFacade = {
   src: "images/house-facade.jpg",
-  alt: "Illustration of a two-story brick and white-sided family home at sunset. No people.",
+  alt: "A two-story brick family home at sunset.",
 } as const;
 
 /**

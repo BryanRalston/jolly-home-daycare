@@ -28,9 +28,9 @@ function About() {
           {site.providerName}, {site.providerHonorific}
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-          Jolly Home Daycare is a Virginia-licensed family day home (license {site.license.number})
-          at {addressLine}. In business since 2000. The Care.com listing describes the tagline on
-          the logo: “{site.tagline}.”
+          A Virginia-licensed family day home at {addressLine}. In business since 2000. Openings for
+          infants from 2 months through age 5, and before- and after-school care. Tuition is shared
+          in person.
         </p>
       </section>
 
@@ -49,10 +49,9 @@ function About() {
 
       <section className="border-y border-line bg-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-3xl text-ink">What is stated publicly</h2>
+          <h2 className="font-display text-3xl text-ink">About the program</h2>
           <p className="mt-3 max-w-2xl text-sm text-muted">
-            These details come from the Care.com listing and Virginia licensing directories. We do
-            not publish tuition online — it is shared in person.
+            Tuition is shared in person. Parents on Care.com rate the program 5.0 from ten reviews.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {providerFacts.map((fact) => (
