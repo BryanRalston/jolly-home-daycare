@@ -1,3 +1,4 @@
+import { FactChips } from "@/components/fact-chips";
 import { InquiryForm } from "@/components/inquiry-form";
 import { VisitCtas } from "@/components/visit-ctas";
 import {
@@ -7,7 +8,7 @@ import {
   moodStills,
   parentVoices,
   programs,
-  providerFacts,
+  credentialChips,
   pullQuotes,
   safetyItems,
   trustBar,
@@ -251,38 +252,31 @@ function Safety() {
 function MeetMsJolly() {
   return (
     <section id="ms-jolly" className="scroll-mt-24 border-y border-line bg-cream">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:py-20">
-        <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
-            Meet Ms. Jolly
-          </p>
-          <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
-            {site.providerName} · {site.providerHonorific}
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted">
-            Farhana Abid — families know her as Ms. Jolly — has cared for children in her Potomac
-            Station home since {site.since}. She calls it a home away from home: a licensed family
-            day home where infants from 2 months through age 5, and before- and after-schoolers,
-            spend the day with one familiar caregiver.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted">
-            She is certified in Adult and Child CPR, First-Aid, and Medication Administration
-            Training (MAT), and is criminal and Child Protective Agency background checked. Days
-            include poems, rhymes, alphabet, phonics, numbers, shapes, colors, and puzzles — and
-            colors and numbers in English and Spanish. Children ages 2 and up follow a preschool
-            curriculum.
-          </p>
-        </div>
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {providerFacts.map((fact) => (
-            <li
-              key={fact}
-              className="rounded-lg border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink shadow-soft"
-            >
-              {fact}
-            </li>
-          ))}
-        </ul>
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:max-w-3xl lg:py-20">
+        <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
+          Meet Ms. Jolly
+        </p>
+        <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
+          {site.providerName} · {site.providerHonorific}
+        </h2>
+        <p className="mt-5 text-base leading-relaxed text-muted">
+          Farhana Abid — families know her as Ms. Jolly — has cared for children in her Potomac
+          Station home since {site.since}. She calls it a home away from home: a licensed family
+          day home where infants from 2 months through age 5, and before- and after-schoolers,
+          spend the day with one familiar caregiver.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-muted">
+          She is certified in Adult and Child CPR, First-Aid, and Medication Administration
+          Training (MAT), and is criminal and Child Protective Agency background checked.
+        </p>
+        <FactChips items={credentialChips} className="mt-6" />
+        <p className="mt-6 text-sm text-muted">
+          Parents on Care.com rate the program 5.0 from ten reviews.{" "}
+          <a href="#reviews" className="text-terracotta-deep hover:underline">
+            Read what families say
+          </a>
+          .
+        </p>
       </div>
     </section>
   );

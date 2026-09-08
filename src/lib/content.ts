@@ -71,18 +71,20 @@ export const earlyLearning = [
   "Colors and numbers in English and Spanish",
 ] as const;
 
-/** Credentials and program facts — no “more than 10 years” claim. */
-export const providerFacts = [
-  "Adult and Child CPR, First-Aid, and Medication Administration Training (MAT) certified",
-  "Criminal and Child Protective Agency background checked",
-  "Virginia-licensed family day home, license 1106308",
-  "Program capacity 12 · teacher/student ratio 1:5",
+/** Compact chips for Meet Ms. Jolly — spell out MAT once in nearby prose. */
+export const credentialChips = [
+  "Adult & Child CPR",
+  "First-Aid",
+  "MAT",
+  "Background checked",
+] as const;
+
+/** Licensing / program facts — keep separate from credentials; do not title “the day.” */
+export const licensingFacts = [
+  "VA licensed #1106308",
+  "Capacity 12",
+  "Ratio 1:5",
   "Serving families since 2000",
-  "Breakfast, lunch, snacks, and dinner included",
-  "Meals follow CNI (Child Nutrition Inc) components: protein, carbs, vegetables, and fruit",
-  "Teaching — poems, rhymes, alphabet, phonics, numbers, shapes, colors, and puzzles",
-  "Colors and numbers in English and Spanish",
-  "Preschool curriculum for ages 2 and up",
 ] as const;
 
 export const safetyItems = [

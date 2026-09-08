@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { FactChips } from "@/components/fact-chips";
 import { Button } from "@/components/ui/button";
-import { houseFacade, providerFacts } from "@/lib/content";
+import { credentialChips, houseFacade, licensingFacts } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { addressLine, site } from "@/lib/site";
 
@@ -55,22 +56,32 @@ function About() {
 
       <section className="border-y border-line bg-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-3xl text-ink">Credentials &amp; the day</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">
-            Certified in Adult and Child CPR, First-Aid, and Medication Administration Training
-            (MAT). Criminal and Child Protective Agency background checked. Parents on Care.com rate
-            the program 5.0 from ten reviews.
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
+              Credentials
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted">
+              Certified in Adult and Child CPR, First-Aid, and Medication Administration Training
+              (MAT). Criminal and Child Protective Agency background checked.
+            </p>
+            <FactChips items={credentialChips} className="mt-5" />
+          </div>
+          <div className="mt-12 max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
+              Licensing
+            </p>
+            <p className="mt-3 text-base leading-relaxed text-muted">
+              A Virginia-licensed family day home in Potomac Station, Leesburg.
+            </p>
+            <FactChips items={licensingFacts} className="mt-5" />
+          </div>
+          <p className="mt-10 max-w-2xl text-sm text-muted">
+            Parents on Care.com rate the program 5.0 from ten reviews.{" "}
+            <Link to="/" hash="reviews" className="text-terracotta-deep hover:underline">
+              Read what families say
+            </Link>
+            .
           </p>
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {providerFacts.map((fact) => (
-              <li
-                key={fact}
-                className="rounded-lg border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink shadow-soft"
-              >
-                {fact}
-              </li>
-            ))}
-          </ul>
           <Button asChild size="lg" className="mt-8">
             <Link to="/enrollment" hash="visit">
               Schedule a Visit
