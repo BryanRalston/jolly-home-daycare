@@ -9,8 +9,7 @@ export function SiteFooter() {
         <div>
           <Logo onDark />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/75">
-            {site.tagline}. A Virginia-licensed family day home in {site.address.neighborhood},
-            Leesburg.
+            A Virginia-licensed family day home in Potomac Station, Leesburg.
           </p>
         </div>
         <div>

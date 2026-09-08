@@ -15,7 +15,7 @@ export function EnrollmentPage() {
       <AboutProvider />
       <ParentVoices />
       <VisitSection />
-      <FindTheDoor />
+      <FindUs />
     </main>
   );
 }
@@ -45,11 +45,11 @@ function Hero() {
             {site.address.neighborhood} · Leesburg, VA
           </p>
           <h1 className="reveal mt-4 font-display text-5xl leading-[1.05] text-cream sm:text-6xl lg:text-7xl">
-            Come see the house.
+            Licensed family daycare in Leesburg
           </h1>
           <p className="reveal mt-5 text-base leading-relaxed text-cream/85 sm:text-lg">
-            A licensed family day home — meals included, a known adult at the door, and a short visit
-            so you can walk the rooms before you decide.
+            Infants from 2 months through age 5, plus before- and after-school care. Meals included.
+            Come visit the home before you enroll.
           </p>
           <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
@@ -87,14 +87,9 @@ function PhotoGrid() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">Our home</p>
-      <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-        The house, then the everyday mood.
-      </h2>
+      <h2 className="max-w-xl font-display text-3xl text-ink sm:text-4xl">Our home</h2>
       <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
-        The exterior is an illustration of the family day home — not a photograph, and not a photo of
-        children. The still lifes below are mood images for learning, meals, and warmth. Come walk
-        the rooms on a visit.
+        A family day home in Potomac Station — quiet rooms, meals, and everyday preschool learning.
       </p>
       <div className="mt-8 grid gap-3 sm:grid-cols-2">
         <img
@@ -127,23 +122,17 @@ function AboutProvider() {
     <section className="border-y border-line bg-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:py-20">
         <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
-            About / Provider
-          </p>
+          <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">About</p>
           <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">
-            {site.providerName}
-            <span className="mt-2 block text-2xl text-muted sm:text-3xl">
-              {site.providerHonorific}
-            </span>
+            {site.providerName} · {site.providerHonorific}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted">
-            “{site.tagline}.” A Virginia-licensed family day home at {addressLine}, in business
-            since 2000. Openings follow the current enrollment copy: infants from 2 months through
-            age 5, and before- and after-school care.
+            A Virginia-licensed family day home at {addressLine}. In business since 2000. Openings
+            for infants from 2 months through age 5, and before- and after-school care. Tuition is
+            shared in person.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted">
-            Tuition is shared in person so it matches the actual schedule. Care.com also lists a
-            5.0 rating from ten parent reviews — a visit is still the right next step.
+            Parents on Care.com rate the program 5.0 from ten reviews.
           </p>
         </div>
         <ul className="grid gap-3 sm:grid-cols-2">
@@ -165,11 +154,9 @@ function ParentVoices() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
       <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
-        Parent voices
+        Parent reviews
       </p>
-      <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">
-        From families who already walked through the door.
-      </h2>
+      <h2 className="mt-3 max-w-xl font-display text-3xl text-ink sm:text-4xl">What parents say</h2>
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         {parentVoices.map((voice, i) => (
           <blockquote
@@ -214,12 +201,10 @@ function VisitSection() {
           <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
             Request a visit
           </p>
-          <h2 className="mt-3 font-display text-3xl text-cream sm:text-4xl">
-            Tell us a little, then come see the rooms.
-          </h2>
+          <h2 className="mt-3 font-display text-3xl text-cream sm:text-4xl">Request a visit</h2>
           <p className="mt-5 text-base leading-relaxed text-cream/80">
-            We’ll follow up about a visit. Bring questions about ages, days you need, meals and
-            allergies, and a start date. Tuition is shared in person.
+            Tell us a few details and we’ll follow up. Bring questions about ages, schedule, meals
+            and allergies, and a start date. Tuition is shared in person.
           </p>
           <dl className="mt-8 space-y-4 text-sm">
             <div>
@@ -248,15 +233,13 @@ function VisitSection() {
   );
 }
 
-function FindTheDoor() {
+function FindUs() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">
-        Find the door
-      </p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">Find us</p>
       <h2 className="mt-3 font-display text-3xl text-ink sm:text-4xl">{addressLine}</h2>
       <p className="mt-3 max-w-xl text-base text-muted">
-        Street parking on Longhouse Place, in Potomac Station.
+        Street parking on Longhouse Place in Potomac Station.
       </p>
       <div className="mt-8 grid gap-4 lg:grid-cols-2">
         <div className="rounded-lg border border-line bg-cream p-6 shadow-soft">

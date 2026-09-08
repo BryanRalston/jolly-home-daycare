@@ -298,7 +298,7 @@ export function InquiryForm() {
       {error ? <p className="mt-4 text-sm text-terracotta-deep">{error}</p> : null}
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-muted">
-          We’ll follow up about a visit. We only use this to reply — no mailing lists.
+          We only use this to reply.
         </p>
         <Button type="submit" size="lg" disabled={sending}>
           {sending ? "Sending…" : "Request a visit"}
