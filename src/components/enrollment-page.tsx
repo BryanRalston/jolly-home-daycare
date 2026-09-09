@@ -56,9 +56,9 @@ function Hero() {
           <img
             src={asset("images/logo.png")}
             alt={`${site.name}. ${site.tagline}.`}
-            width={96}
-            height={96}
-            className="reveal mb-6 h-16 w-16 rounded-md shadow-soft ring-1 ring-cream/15 sm:h-20 sm:w-20"
+            width={280}
+            height={100}
+            className="reveal mb-6 h-16 w-[11.4rem] rounded-md bg-cream object-cover object-center shadow-soft ring-1 ring-cream/15 sm:h-20 sm:w-[14.2rem]"
           />
           <p className="reveal text-xs font-semibold tracking-[0.22em] text-cream/80 uppercase">
             {site.address.neighborhood} · Leesburg, VA

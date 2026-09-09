@@ -45,7 +45,7 @@ function About() {
         <img
           src={asset("images/logo.png")}
           alt={`${site.name} logo. ${site.tagline}.`}
-          className="aspect-[4/3] w-full rounded-lg bg-forest object-contain p-10 shadow-soft"
+          className="aspect-[4/3] w-full rounded-lg bg-cream object-contain p-6 shadow-soft"
         />
         <img
           src={asset(houseFacade.src)}
