@@ -16,34 +16,19 @@ export function Logo({
     <Link
       to="/"
       onClick={onNavigate}
-      className={cn("flex items-center gap-3 no-underline", className)}
+      className={cn("flex items-center no-underline", className)}
       aria-label={`${site.name}, home`}
     >
       <img
         src={asset("images/logo.png")}
         alt=""
-        width={56}
-        height={56}
-        className="size-12 rounded-md object-cover shadow-soft ring-1 ring-forest/15 sm:size-14"
+        width={228}
+        height={80}
+        className={cn(
+          "h-10 w-[7.1rem] object-cover object-center sm:h-12 sm:w-[8.5rem]",
+          onDark && "rounded-md ring-1 ring-cream/20",
+        )}
       />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-display text-[1.15rem] tracking-tight",
-            onDark ? "text-cream" : "text-ink",
-          )}
-        >
-          {site.shortName}
-        </span>
-        <span
-          className={cn(
-            "mt-1 text-[0.7rem] font-medium tracking-[0.16em] uppercase",
-            onDark ? "text-cream/70" : "text-muted",
-          )}
-        >
-          Daycare
-        </span>
-      </span>
     </Link>
   );
 }
