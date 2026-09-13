@@ -3,8 +3,17 @@
  * Normalize the static build for GitHub Pages:
  * copy HTML into ./site, add 404.html + .nojekyll, drop Grok chrome.
  */
-import { copyFileSync, cpSync, existsSync, rmSync, writeFileSync } from "node:fs";
+import {
+  copyFileSync,
+  cpSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { join } from "node:path";
+import { ensureCloudflareBeacon } from "./cloudflare-beacon.mjs";
 
 const sources = ["dist/client", "dist", ".output/public"];
 const src = sources.find(
@@ -31,6 +40,22 @@ if (!existsSync(join(out, "404.html"))) {
   const fallback = existsSync(index) ? index : shell;
   copyFileSync(fallback, join(out, "404.html"));
 }
+
+injectCloudflareBeacon(out);
+
 writeFileSync(join(out, ".nojekyll"), "");
 writeFileSync(join(out, "CNAME"), "www.jollyhomedaycare.com\n");
 console.log(`pages-postbuild: static site ready in ${out}/ (from ${src})`);
+
+function injectCloudflareBeacon(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      injectCloudflareBeacon(path);
+      continue;
+    }
+    if (!entry.name.endsWith(".html")) continue;
+    const next = ensureCloudflareBeacon(readFileSync(path, "utf8"));
+    writeFileSync(path, next);
+  }
+}
