@@ -71,6 +71,13 @@ function RootDocument() {
           <StickyVisitCta />
         </AuthProvider>
         <Scripts />
+        {/* Cloudflare Web Analytics */}
+        <script
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "94428ff41ec64824b100ba70c7a9aece"}'
+        />
+        {/* End Cloudflare Web Analytics */}
       </body>
     </html>
   );
