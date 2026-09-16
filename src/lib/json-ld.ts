@@ -11,6 +11,8 @@ export function localBusinessJsonLd() {
       `${site.publicUrl}/og.jpg`,
       `${site.publicUrl}/images/logo.png`,
       `${site.publicUrl}/images/house-facade.jpg`,
+      `${site.publicUrl}/images/outdoor-playground.jpg`,
+      `${site.publicUrl}/images/playroom-wide.jpg`,
     ],
     telephone: site.phoneHref.replace("tel:", ""),
     email: site.email,

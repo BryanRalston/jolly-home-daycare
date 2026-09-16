@@ -4,8 +4,9 @@ import { VisitCtas } from "@/components/visit-ctas";
 import {
   earlyLearning,
   faqs,
+  galleryPhoto,
+  homeGallery,
   houseFacade,
-  moodStills,
   parentVoices,
   programs,
   credentialChips,
@@ -151,7 +152,7 @@ function Programs() {
 }
 
 function Learning() {
-  const books = moodStills[0];
+  const kitchens = galleryPhoto("kitchens");
 
   return (
     <section id="learning" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:py-20">
@@ -185,8 +186,8 @@ function Learning() {
           </p>
         </div>
         <img
-          src={asset(books.src)}
-          alt={books.alt}
+          src={asset(kitchens.src)}
+          alt={kitchens.alt}
           className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
         />
       </div>
@@ -195,15 +196,15 @@ function Learning() {
 }
 
 function Meals() {
-  const snack = moodStills[1];
+  const kitchenette = galleryPhoto("kitchenette");
 
   return (
     <section id="meals" className="scroll-mt-24 border-y border-line bg-cream">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
         <img
-          src={asset(snack.src)}
-          alt={snack.alt}
-          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft lg:order-2"
+          src={asset(kitchenette.src)}
+          alt={kitchenette.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover object-[center_65%] shadow-soft lg:order-2"
         />
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">Meals</p>
@@ -325,8 +326,6 @@ function ParentReviews() {
 }
 
 function OurHome() {
-  const [learning, meals, warmth] = moodStills;
-
   return (
     <section id="home" className="scroll-mt-24 border-y border-line bg-cream">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
@@ -339,26 +338,18 @@ function OurHome() {
           neighborhood, close to everyday family life.
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
-          <img
-            src={asset(houseFacade.src)}
-            alt={houseFacade.alt}
-            className="aspect-[16/9] w-full rounded-lg object-cover object-[center_70%] shadow-soft sm:col-span-2"
-          />
-          <img
-            src={asset(learning.src)}
-            alt={learning.alt}
-            className="aspect-[16/9] w-full rounded-lg object-cover shadow-soft sm:col-span-2"
-          />
-          <img
-            src={asset(meals.src)}
-            alt={meals.alt}
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
-          />
-          <img
-            src={asset(warmth.src)}
-            alt={warmth.alt}
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
-          />
+          {homeGallery.map((photo, i) => (
+            <img
+              key={photo.id}
+              src={asset(photo.src)}
+              alt={photo.alt}
+              className={
+                i < 2
+                  ? "aspect-[16/9] w-full rounded-lg object-cover shadow-soft sm:col-span-2"
+                  : "aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
+              }
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -440,12 +431,12 @@ function Location() {
 }
 
 function VisitSection() {
-  const warmth = moodStills[2];
+  const shelves = galleryPhoto("shelves");
 
   return (
     <section id="visit" className="relative isolate scroll-mt-32 overflow-hidden bg-forest">
       <img
-        src={asset(warmth.src)}
+        src={asset(shelves.src)}
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.18]"
