@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { earlyLearning, moodStills, programs } from "@/lib/content";
+import { earlyLearning, facilityPhoto, programs } from "@/lib/content";
 import { asset } from "@/lib/assets";
 import { site } from "@/lib/site";
 
@@ -21,7 +21,11 @@ export const Route = createFileRoute("/programs")({
   }),
 });
 
-const stills = [moodStills[1], moodStills[0], moodStills[2]] as const;
+const programPhotos = [
+  facilityPhoto("eating"),
+  facilityPhoto("playroom"),
+  facilityPhoto("kitchens"),
+] as const;
 
 function Programs() {
   return (
@@ -49,9 +53,9 @@ function Programs() {
               <p className="mt-5 text-sm leading-relaxed text-muted">{p.body}</p>
             </div>
             <img
-              src={asset(stills[i].src)}
-              alt={stills[i].alt}
-              className={`aspect-[4/3] w-full rounded-lg object-cover shadow-soft ${i % 2 === 1 ? "lg:order-1" : ""}`}
+              src={asset(programPhotos[i].src)}
+              alt={programPhotos[i].alt}
+              className={`aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft ${i % 2 === 1 ? "lg:order-1" : ""}`}
             />
           </article>
         ))}

@@ -4,8 +4,9 @@ import { VisitCtas } from "@/components/visit-ctas";
 import {
   earlyLearning,
   faqs,
+  facilityPhoto,
+  facilityPhotos,
   houseFacade,
-  moodStills,
   parentVoices,
   programs,
   credentialChips,
@@ -151,7 +152,7 @@ function Programs() {
 }
 
 function Learning() {
-  const books = moodStills[0];
+  const playroom = facilityPhoto("playroom");
 
   return (
     <section id="learning" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 lg:py-20">
@@ -185,9 +186,9 @@ function Learning() {
           </p>
         </div>
         <img
-          src={asset(books.src)}
-          alt={books.alt}
-          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
+          src={asset(playroom.src)}
+          alt={playroom.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover object-[center_70%] shadow-soft"
         />
       </div>
     </section>
@@ -195,15 +196,15 @@ function Learning() {
 }
 
 function Meals() {
-  const snack = moodStills[1];
+  const kitchenette = facilityPhoto("kitchenette");
 
   return (
     <section id="meals" className="scroll-mt-24 border-y border-line bg-cream">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-20">
         <img
-          src={asset(snack.src)}
-          alt={snack.alt}
-          className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft lg:order-2"
+          src={asset(kitchenette.src)}
+          alt={kitchenette.alt}
+          className="aspect-[4/3] w-full rounded-lg object-cover object-[center_60%] shadow-soft lg:order-2"
         />
         <div>
           <p className="text-xs font-semibold tracking-[0.2em] text-terracotta uppercase">Meals</p>
@@ -325,8 +326,6 @@ function ParentReviews() {
 }
 
 function OurHome() {
-  const [learning, meals, warmth] = moodStills;
-
   return (
     <section id="home" className="scroll-mt-24 border-y border-line bg-cream">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
@@ -335,8 +334,7 @@ function OurHome() {
           A family day home in Potomac Station
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
-          The house on Longhouse Place where children spend their days — a quiet Leesburg
-          neighborhood, close to everyday family life.
+          Our home — playroom, meals area, and outdoor play.
         </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2">
           <img
@@ -344,21 +342,18 @@ function OurHome() {
             alt={houseFacade.alt}
             className="aspect-[16/9] w-full rounded-lg object-cover object-[center_70%] shadow-soft sm:col-span-2"
           />
-          <img
-            src={asset(learning.src)}
-            alt={learning.alt}
-            className="aspect-[16/9] w-full rounded-lg object-cover shadow-soft sm:col-span-2"
-          />
-          <img
-            src={asset(meals.src)}
-            alt={meals.alt}
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
-          />
-          <img
-            src={asset(warmth.src)}
-            alt={warmth.alt}
-            className="aspect-[4/3] w-full rounded-lg object-cover shadow-soft"
-          />
+          {facilityPhotos.map((photo, i) => (
+            <img
+              key={photo.id}
+              src={asset(photo.src)}
+              alt={photo.alt}
+              className={
+                i === 0
+                  ? "aspect-[4/3] w-full rounded-lg object-cover object-[center_55%] shadow-soft sm:col-span-2"
+                  : "aspect-[4/3] w-full rounded-lg object-cover object-center shadow-soft"
+              }
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -440,12 +435,12 @@ function Location() {
 }
 
 function VisitSection() {
-  const warmth = moodStills[2];
+  const playroom = facilityPhoto("playroom");
 
   return (
     <section id="visit" className="relative isolate scroll-mt-32 overflow-hidden bg-forest">
       <img
-        src={asset(warmth.src)}
+        src={asset(playroom.src)}
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.18]"
