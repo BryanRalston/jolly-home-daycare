@@ -150,26 +150,65 @@ export const houseFacade = {
 } as const;
 
 /**
- * Generated mood stills — not photographs of the Leesburg house, playroom, or yard.
- * Never caption these as “our” rooms or grounds.
+ * Facility photographs for the site gallery. Outdoor play with children is
+ * for the website only — do not send that file to Google Maps / schema images.
+ * No visible captions in the UI.
  */
-export const moodStills = [
+export const facilityPhotos = [
   {
-    id: "learning",
-    src: "images/still-books-blocks.png",
-    alt: "Still life of picture books, wooden alphabet blocks, and crayons.",
+    id: "outdoor",
+    src: "images/facility-outdoor.jpg",
+    alt: "Outdoor play.",
   },
   {
-    id: "meals",
-    src: "images/still-snack.png",
-    alt: "Still life of apple slices and carrot sticks on a plate.",
+    id: "playroom",
+    src: "images/facility-playroom-wide.jpg",
+    alt: "Playroom.",
   },
   {
-    id: "warmth",
-    src: "images/still-abstract.png",
-    alt: "Still life of cream linen, an olive branch, and a terracotta vase.",
+    id: "shelves",
+    src: "images/facility-welcome-shelves.jpg",
+    alt: "Playroom shelves.",
+  },
+  {
+    id: "kitchens",
+    src: "images/facility-kitchens.jpg",
+    alt: "Play kitchens.",
+  },
+  {
+    id: "kitchenette",
+    src: "images/facility-kitchenette.jpg",
+    alt: "Kitchenette.",
+  },
+  {
+    id: "eating",
+    src: "images/facility-eating.jpg",
+    alt: "Eating area.",
   },
 ] as const;
+
+export type FacilityPhotoId = (typeof facilityPhotos)[number]["id"];
+
+export function facilityPhoto(id: FacilityPhotoId) {
+  switch (id) {
+    case "outdoor":
+      return facilityPhotos[0];
+    case "playroom":
+      return facilityPhotos[1];
+    case "shelves":
+      return facilityPhotos[2];
+    case "kitchens":
+      return facilityPhotos[3];
+    case "kitchenette":
+      return facilityPhotos[4];
+    case "eating":
+      return facilityPhotos[5];
+    default: {
+      const _exhaustive: never = id;
+      throw new Error(`Unknown facility photo: ${_exhaustive}`);
+    }
+  }
+}
 
 /**
  * Short excerpts from public Care.com reviews (all shown as 5-star on that listing).
