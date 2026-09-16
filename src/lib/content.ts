@@ -150,26 +150,64 @@ export const houseFacade = {
 } as const;
 
 /**
- * Generated mood stills — not photographs of the Leesburg house, playroom, or yard.
- * Never caption these as “our” rooms or grounds.
+ * Photographs of the Longhouse Place home. House exterior stays in the hero
+ * (and About), so the gallery does not repeat it. No visible captions in UI.
  */
-export const moodStills = [
+export const homeGallery = [
   {
-    id: "learning",
-    src: "images/still-books-blocks.png",
-    alt: "Still life of picture books, wooden alphabet blocks, and crayons.",
+    id: "playground",
+    src: "images/outdoor-playground.jpg",
+    alt: "Children on the backyard playground.",
   },
   {
-    id: "meals",
-    src: "images/still-snack.png",
-    alt: "Still life of apple slices and carrot sticks on a plate.",
+    id: "playroom",
+    src: "images/playroom-wide.jpg",
+    alt: "Playroom with a Welcome banner and alphabet floor mat.",
   },
   {
-    id: "warmth",
-    src: "images/still-abstract.png",
-    alt: "Still life of cream linen, an olive branch, and a terracotta vase.",
+    id: "kitchenette",
+    src: "images/kitchenette.jpg",
+    alt: "Snack kitchenette with child safety locks on the cabinets.",
+  },
+  {
+    id: "eating",
+    src: "images/eating-area.jpg",
+    alt: "High chairs, a child-size table, and stacked chairs.",
+  },
+  {
+    id: "shelves",
+    src: "images/playroom-welcome-shelves.jpg",
+    alt: "Toy shelves under the Welcome wall.",
+  },
+  {
+    id: "kitchens",
+    src: "images/play-kitchens-learning.jpg",
+    alt: "Play kitchens and learning charts along the wall.",
   },
 ] as const;
+
+export type HomeGalleryId = (typeof homeGallery)[number]["id"];
+
+export function galleryPhoto(id: HomeGalleryId) {
+  switch (id) {
+    case "playground":
+      return homeGallery[0];
+    case "playroom":
+      return homeGallery[1];
+    case "kitchenette":
+      return homeGallery[2];
+    case "eating":
+      return homeGallery[3];
+    case "shelves":
+      return homeGallery[4];
+    case "kitchens":
+      return homeGallery[5];
+    default: {
+      const _exhaustive: never = id;
+      throw new Error(`Unknown gallery photo: ${_exhaustive}`);
+    }
+  }
+}
 
 /**
  * Short excerpts from public Care.com reviews (all shown as 5-star on that listing).
